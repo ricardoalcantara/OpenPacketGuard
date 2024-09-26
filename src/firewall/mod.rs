@@ -4,11 +4,7 @@ use crate::error::OPGError;
 pub struct Firewall {}
 
 impl Firewall {
-    pub fn new() -> Self {
-        Firewall::default()
-    }
-
-    pub fn start(&self) -> Result<(), OPGError> {
+    fn _start(&self) -> Result<(), OPGError> {
         let ipt = iptables::new(false)?;
         // Flush existing rules
         ipt.flush_chain("filter", "INPUT")?;
